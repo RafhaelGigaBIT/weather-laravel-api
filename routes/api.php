@@ -20,7 +20,10 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::Post('/login', [AuthController::class, 'login']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::get('/weather', [WeatherController::class, 'byCity']);
+    Route::get('/city', [WeatherController::class, 'byCity']);
+    Route::get('/zipCode', [WeatherController::class, 'byZipCode']);
+
+    // LOGOUT ROUTE
     Route::post('/logout', [AuthController::class, 'logout']);
 });
 
